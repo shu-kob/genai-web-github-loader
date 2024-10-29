@@ -12,15 +12,15 @@ const generativeModel = vertex_ai.getGenerativeModel({
   model: 'gemini-pro',
   // The following parameters are optional
   // They can also be passed to individual content generation requests
-  safety_settings: [{category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE}],
-  generation_config: {max_output_tokens: 8192},
+  safetySettings: [{category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE}],
+  generationConfig: {maxOutputTokens: 8192},
 });
 
 async function loadWeb(url: string) {
-  const response = await webLoad(url)
+  const webPage = await webLoad(url)
   
-  console.log('response: ', response);
-  const prompt = `読み込んだWebページの内容を日本語で要約してください。${response}`;
+  console.log('webPage: ', webPage);
+  const prompt = `読み込んだWebページの内容を日本語で要約してください。${webPage}`;
   const request = {
     contents: [{role: 'user', parts: [{text: prompt}]}],
   };
