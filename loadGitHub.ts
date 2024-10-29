@@ -9,7 +9,7 @@ const branch = process.argv[3] || "main"
 
 const gitHubAccessToken = process.env.GITHUB_ACCESS_TOKEN || ""
 
-const project = 'PROJECT_ID'
+const project = 'PROJECT_ID' // 書き換える
 const location = 'asia-northeast1'
 
 const vertex_ai = new VertexAI({project: project, location: location});

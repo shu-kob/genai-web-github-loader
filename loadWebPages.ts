@@ -3,7 +3,7 @@ import { webLoad } from './webLoad';
 
 const url = process.argv[2]
 
-const project = 'PROJECT_ID'
+const project = 'PROJECT_ID' // 書き換える
 const location = 'asia-northeast1'
 
 const vertex_ai = new VertexAI({project: project, location: location});
