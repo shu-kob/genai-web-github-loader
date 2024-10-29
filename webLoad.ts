@@ -1,8 +1,6 @@
 import * as cheerio from 'cheerio'
 
-const url = process.argv[2]
-
-async function webLoad (url: string) {
+export async function webLoad (url: string) {
   // HTMLの取得
   const response = await fetch(url)
   const htmlText = await response.text()
@@ -18,5 +16,3 @@ async function webLoad (url: string) {
   console.log(bodyContent)
   return bodyContent
 }
-
-webLoad(url)

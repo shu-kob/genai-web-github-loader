@@ -1,12 +1,6 @@
 import { GithubRepoLoader } from '@langchain/community/document_loaders/web/github'
 
-const url = process.argv[2]
-
-const branch = process.argv[3] || "main"
-
-const gitHubAccessToken = process.env.GITHUB_ACCESS_TOKEN || ""
-
-async function readSorceCodesFromGithub(url: string, branch: string, gitHubAccessToken: string) {
+export async function readSorceCodesFromGithub(url: string, branch: string, gitHubAccessToken: string) {
 
   const loader = new GithubRepoLoader(
     url,
@@ -21,9 +15,10 @@ async function readSorceCodesFromGithub(url: string, branch: string, gitHubAcces
     }
   );
 
+  const docs = [];
   for await (const doc of loader.loadAsStream()) {
-    console.log(doc)
+    docs.push(doc);
   }
+  console.log('sourceCodes: ' + JSON.stringify(docs));
+  return JSON.stringify(docs)
 };
-
-readSorceCodesFromGithub(url, branch, gitHubAccessToken)
