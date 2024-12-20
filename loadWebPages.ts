@@ -4,12 +4,12 @@ import { webLoad } from './webLoad';
 const url = process.argv[2]
 
 const project = 'PROJECT_ID' // 書き換える
-const location = 'asia-northeast1'
+const location = 'us-central1'
 
 const vertex_ai = new VertexAI({project: project, location: location});
 
 const generativeModel = vertex_ai.getGenerativeModel({
-  model: 'gemini-pro',
+  model: 'gemini-2.0-flash-exp',
   // The following parameters are optional
   // They can also be passed to individual content generation requests
   safetySettings: [{category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE}],
