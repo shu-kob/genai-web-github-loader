@@ -10,13 +10,13 @@ const branch = process.argv[3] || "main"
 const gitHubAccessToken = process.env.GITHUB_ACCESS_TOKEN || ""
 
 const project = 'PROJECT_ID' // 書き換える
-const location = 'asia-northeast1'
+const location = 'us-central1'
 
 const vertex_ai = new VertexAI({project: project, location: location});
 
 // Instantiate models
 const generativeModel = vertex_ai.getGenerativeModel({
-    model: 'gemini-1.5-pro', // 'gemini-pro-vision'も選択可
+    model: 'gemini-2.0-flash-exp', // 'gemini-pro-vision'も選択可
     // The following parameters are optional
     // They can also be passed to individual content generation requests
     safetySettings: [{category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE}],
